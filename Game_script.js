@@ -5,7 +5,7 @@ var squares = document.querySelectorAll(".square");
 var resetbutton=document.querySelector("#reset");
 var colorpicked=pickcolors();
 var colordisplay=document.getElementById("colordisplay");
-var message=document.querySelector("#message"); 
+var messageD=document.querySelector("#message"); 
 var h1=document.querySelector("h1");
 
 resetbutton.addEventListener("click",function(){
@@ -27,7 +27,7 @@ for(var i = 0; i < squares.length; i++)
 console.log(clickedcolor,colorpicked);
 if(clickedcolor === colorpicked)
 {
-	message.textContent="correct";
+	messageD.textContent="Correct :)";
 	for(var i=0;i<squares.length;i++)
 	{
 	squares[i].style.backgroundColor=colorpicked;
@@ -37,7 +37,7 @@ h1.style.backgroundColor=colorpicked;
 else
 {
 	this.style.backgroundColor="#232323";
-	message.textContent="try again";
+	messageD.textContent="Oops :( Try again";
 }
 	});
 }
