@@ -18,9 +18,14 @@ for(var i = 0; i < squares.length; i++)
 	squares[i].style.backgroundColor = colors[i];
 	squares[i].addEventListener("click",function(){
 		var clickedcolor = this.style.backgroundColor;
+
 if(clickedcolor === colorpicked)
 {
 	message.textContent="correct";
+	for(var i=0;i<squares.length;i++)
+	{
+	squares[i].style.backgroundColor=clickedcolor;
+}
 }
 else
 {
