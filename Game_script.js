@@ -7,8 +7,45 @@ var colorpicked=pickcolors();
 var colordisplay=document.getElementById("colordisplay");
 var messageD=document.querySelector("#message"); 
 var h1=document.querySelector("h1");
+var EASYbtn=document.querySelector("#EASYbtn");
+var HARDbtn=document.querySelector("#HARDbtn");
+EASYbtn.addEventListener("click",function(){
+	
+	HARDbtn.classList.remove("selected");
+	EASYbtn.classList.add("selected");
+	colors=generaterandomcolor(3);
+	colorpicked=pickcolors(3);
+	colordisplay.textContent=colorpicked;
+	for(var i=0;i<squares.length;i++)
 
+	{
+		if(colors[i])
+		{
+			squares[i].style.backgroundColor=colors[i];
+		}
+		else
+		{
+			squares[i].style.display="none";
+		}
+	}
+});
+HARDbtn.addEventListener("click",function(){
+	EASYbtn.classList.remove("selected");
+	HARDbtn.classList.add("selected");
+	colors=generaterandomcolor(6);
+	colorpicked=pickcolors(6);
+	colordisplay.textContent=colorpicked;
+	for(var i=0;i<squares.length;i++)
+
+	{
+		
+			squares[i].style.backgroundColor=colors[i];
+		squares[i].style.display="block";
+	}
+	
+});
 resetbutton.addEventListener("click",function(){
+	resetbutton.textContent="New colors";
 colors=generaterandomcolor(6);
 colorpicked=pickcolors();
 colordisplay.textContent=colorpicked;	
@@ -28,6 +65,7 @@ console.log(clickedcolor,colorpicked);
 if(clickedcolor === colorpicked)
 {
 	messageD.textContent="Correct :)";
+	resetbutton.textContent="Play Again ?";
 	for(var i=0;i<squares.length;i++)
 	{
 	squares[i].style.backgroundColor=colorpicked;
